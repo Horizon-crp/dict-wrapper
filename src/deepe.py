@@ -3,12 +3,12 @@ def deep(data: dict, *, still: bool = True) -> dict:
   if still:
     for k, v in data.items():
       if type(v) is dict:
-        for a, i in deep(v).items(): e[a] = i
+        for a, i in deep(v, still=still).items(): e[a] = i
       e[k] = v
   else:
     for k, v in data.items():
       if type(v) is dict:
-        for a, i in deep(v).items(): e[a] = i
+        for a, i in deep(v, still=still).items(): e[a] = i
       else:
         e[k] = v
   return e
